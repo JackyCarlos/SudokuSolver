@@ -8,6 +8,12 @@ public class App {
     }
 
     public static void main(String[] args) {
+        boolean visualize = true;
+
+        if (args.length == 2 && args[0].equals("visualize") && args[1].equals("false")) {
+            visualize = false;
+        } 
+
         int[] exampleField = {
               // an easy Sudoku ..
               5, 3, 0,  0, 7, 0,  0, 0, 0,
@@ -42,6 +48,6 @@ public class App {
         GUIobserver observer = new PrettyGUI(solver);
         solver.registerGUIobserver(observer);
 
-        solver.solveSudoku(0);
+        solver.solveSudoku(0, visualize);
     }
 }

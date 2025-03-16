@@ -20,7 +20,7 @@ public class Solver {
     
 
     // recursive method for solving a given sudoku from its starting position.
-    public void solveSudoku(final int n) {
+    public void solveSudoku(final int n, boolean visualize) {
         // as soon as we are at the end of our game field, we should have a solution worth seeing.
         if(n > 80) {
             field.printField();
@@ -32,18 +32,21 @@ public class Solver {
         // if the field we are working on has a number bigger than zero
         // it is a given number we are not allowed to change. In this case we simply continue with our recursion.
         if(field.getNumber(n) > 0) {
-            solveSudoku(n + 1);
+            solveSudoku(n + 1, visualize);
         } else {
             // let's try all nine possible numbers for our field.
             for(int i = 1; i < 10; i++) {
                 field.setNumber(n, i);
                 observer.informChangedField(n);
-                try { Thread.sleep(100); } catch (InterruptedException e) {}
+
+                if (visualize) {
+                    try { Thread.sleep(100); } catch (InterruptedException e) {}
+                }
 
                 // we need to check if the number is valid.
                 // if so we might have the right number and continue with the recursion.
                 if(!field.inRow(n) && !field.inColumn(n) && !field.inBox(n)) {
-                    solveSudoku(n + 1);
+                    solveSudoku(n + 1, visualize);
                 }
             }
 
@@ -51,7 +54,9 @@ public class Solver {
             // and reset the value of our field to zero.
             field.setNumber(n, 0);
             observer.informChangedField(n);
-            try { Thread.sleep(100); } catch (InterruptedException e) {}
+            if (visualize) {
+                try { Thread.sleep(100); } catch (InterruptedException e) {}
+            }
         }
     }
 }
