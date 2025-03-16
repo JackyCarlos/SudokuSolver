@@ -9,7 +9,6 @@ import java.awt.*;
 public class PrettyGUI extends JFrame implements GUIobserver {
     private Solver solver;
     private JTextField[][] cells = new JTextField[9][9];
-    private boolean freeze = false;
 
     public PrettyGUI(Solver solver) {
         this.solver = solver;
@@ -59,13 +58,7 @@ public class PrettyGUI extends JFrame implements GUIobserver {
         return BorderFactory.createMatteBorder(top, left, bottom, right, Color.BLACK);
     }
 
-    public void freeze() {
-        this.freeze = true;
-    }
-
     public void informChangedField(int index) {
-        if (freeze) return;
-
         System.out.println("changing field at index " + index);
         int changedValue = solver.getField().getNumber(index);
 
