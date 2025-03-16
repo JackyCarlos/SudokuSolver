@@ -8,6 +8,18 @@ public class Field implements SudokuField {
         this.field = field;
     }
 
+    public void setNumber(final int index, final int number) {
+        field[index] = number;
+    }
+
+    public int getNumber(final int index) {
+        return field[index];
+    }
+
+    public int[] getField() {
+        return this.field;
+    }
+
     // checks if the value of a field is already in its row.
     public boolean inRow(final int i) {
         int rowStart = i - (i % 9);
@@ -61,13 +73,5 @@ public class Field implements SudokuField {
         }
 
         System.out.println("\n");
-    }
-
-    public void setNumber(final int index, final int number) {
-        field[index] = number;
-    }
-
-    public int getNumber(final int index) {
-        return field[index];
     }
 }

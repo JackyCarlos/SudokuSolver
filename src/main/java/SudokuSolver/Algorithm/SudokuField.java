@@ -6,5 +6,6 @@ public interface SudokuField {
     boolean inBox(int i);
     void setNumber(int index, int number);
     int getNumber(int index);
+    int[] getField();
     void printField();
 }
