@@ -1,1 +1,36 @@
+# === Gradle ===
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# === Wrapper scripts (optional, wenn du die nicht versionieren willst) ===
+# gradlew
+# gradlew.bat
+
+# === IDEs ===
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+
+# === Compiled class files ===
 *.class
+
+# === JARs / libs ===
+*.jar
+*.war
+*.ear
+
+# === Test Reports ===
+test-results/
+reports/
