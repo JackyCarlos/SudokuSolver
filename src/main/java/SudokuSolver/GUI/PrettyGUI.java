@@ -67,7 +67,7 @@ public class PrettyGUI extends JFrame implements GUIobserver {
         if (freeze) return;
 
         System.out.println("changing field at index " + index);
-        int changedValue = solver.getField().get(index);
+        int changedValue = solver.getField().getNumber(index);
 
         cells[index / 9][index % 9].setText(changedValue == 0 ? "" : String.valueOf(changedValue));
     }
