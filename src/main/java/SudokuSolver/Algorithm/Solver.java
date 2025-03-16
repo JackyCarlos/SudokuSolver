@@ -31,14 +31,14 @@ public class Solver {
 
         // if the field we are working on has a number bigger than zero
         // it is a given number we are not allowed to change. In this case we simply continue with our recursion.
-        if(field.get(n) > 0) {
+        if(field.getNumber(n) > 0) {
             solveSudoku(n + 1);
         } else {
             // let's try all nine possible numbers for our field.
             for(int i = 1; i < 10; i++) {
-                field.set(n, i);
+                field.setNumber(n, i);
                 observer.informChangedField(n);
-                try { Thread.sleep(1000); } catch (InterruptedException e) {}
+                try { Thread.sleep(100); } catch (InterruptedException e) {}
 
                 // we need to check if the number is valid.
                 // if so we might have the right number and continue with the recursion.
@@ -49,9 +49,9 @@ public class Solver {
 
             // if no number led to a correct solution we leave this recursion call
             // and reset the value of our field to zero.
-            field.set(n, 0);
+            field.setNumber(n, 0);
             observer.informChangedField(n);
-            try { Thread.sleep(1000); } catch (InterruptedException e) {}
+            try { Thread.sleep(100); } catch (InterruptedException e) {}
         }
     }
 }

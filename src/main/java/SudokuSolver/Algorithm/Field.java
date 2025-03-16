@@ -1,7 +1,6 @@
 package SudokuSolver.Algorithm;
 
 public class Field implements SudokuField {
-
     private int[] field;
 
     // initialises a new sample field
@@ -64,11 +63,11 @@ public class Field implements SudokuField {
         System.out.println("\n");
     }
 
-    public void set(final int index, final int number) {
+    public void setNumber(final int index, final int number) {
         field[index] = number;
     }
 
-    public int get(final int index) {
+    public int getNumber(final int index) {
         return field[index];
     }
 }
