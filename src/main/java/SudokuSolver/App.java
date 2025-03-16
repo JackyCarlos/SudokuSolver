@@ -3,10 +3,6 @@ import SudokuSolver.GUI.*;
 import SudokuSolver.Algorithm.*;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
     public static void main(String[] args) {
         boolean visualize = true;
 
@@ -14,7 +10,7 @@ public class App {
             visualize = false;
         } 
 
-        int[] exampleField = {
+        int[] unsolvedSudoku = {
               // an easy Sudoku ..
               5, 3, 0,  0, 7, 0,  0, 0, 0,
               6, 0, 0,  1, 9, 5,  0, 0, 0,
@@ -43,8 +39,8 @@ public class App {
               */
         };
 
-        SudokuField field = new Field(exampleField);
-        Solver solver = new Solver(field);
+        SudokuField sudoku = new Field(unsolvedSudoku);
+        Solver solver = new Solver(sudoku);
         GUIobserver observer = new PrettyGUI(solver);
         solver.registerGUIobserver(observer);
 
